@@ -16,32 +16,32 @@ st.set_page_config(
 
 @st.cache_data
 def load_data():
-    df_asli = pd.read_csv("tampilan/dataset/RTA Dataset.csv", sep=";")
-    df_indonesia = pd.read_csv("tampilan/dataset/RTA_Dataset_Indonesia.csv", sep=";")
-    df_final = pd.read_csv("tampilan/dataset/Data_final.csv", sep=";")
+    df_asli = pd.read_csv("dataset/RTA Dataset.csv", sep=";")
+    df_indonesia = pd.read_csv("dataset/RTA_Dataset_Indonesia.csv", sep=";")
+    df_final = pd.read_csv("dataset/Data_final.csv", sep=";")
 
     return df_asli, df_indonesia, df_final
 
 df_asli, df_indonesia, df_final = load_data()
 
 def preprocessing():
-    df_sebelum_null = pd.read_excel("tampilan/Preprocessing/Sebelum_Null.xlsx", )
-    df_sesudah_null = pd.read_excel("tampilan/Preprocessing/Sesudah_Null.xlsx")
-    df_transformasi = pd.read_csv("tampilan/Preprocessing/Transformasi.csv", sep=";")
+    df_sebelum_null = pd.read_excel("Preprocessing/Sebelum_Null.xlsx", )
+    df_sesudah_null = pd.read_excel("Preprocessing/Sesudah_Null.xlsx")
+    df_transformasi = pd.read_csv("Preprocessing/Transformasi.csv", sep=";")
 
     return df_sebelum_null, df_sesudah_null, df_transformasi
 
 df_sebelum_null, df_sesudah_null, df_transformasi = preprocessing()
 
 def hasil_pengujian():
-    df_kfold_non_smote = pd.read_excel("tampilan/pengujian/Kfold_non_smote.xlsx")
-    df_kfold_smote = pd.read_excel("tampilan/pengujian/Kfold_smote.xlsx")
-    df_k_non_smote = pd.read_excel("tampilan/pengujian/k_non_smote.xlsx")
-    df_k_smote = pd.read_excel("tampilan/pengujian/k_smote.xlsx")
-    df_jarak_non_smote = pd.read_excel("tampilan/pengujian/metric_non_smote.xlsx")
-    df_jarak_smote = pd.read_excel("tampilan/pengujian/metric_smote.xlsx")
-    df_bobot_non_smote = pd.read_excel("tampilan/pengujian/weight_non_smote.xlsx")
-    df_bobot_smote = pd.read_excel("tampilan/pengujian/weight_smote.xlsx")
+    df_kfold_non_smote = pd.read_excel("pengujian/Kfold_non_smote.xlsx")
+    df_kfold_smote = pd.read_excel("pengujian/Kfold_smote.xlsx")
+    df_k_non_smote = pd.read_excel("pengujian/k_non_smote.xlsx")
+    df_k_smote = pd.read_excel("pengujian/k_smote.xlsx")
+    df_jarak_non_smote = pd.read_excel("pengujian/metric_non_smote.xlsx")
+    df_jarak_smote = pd.read_excel("pengujian/metric_smote.xlsx")
+    df_bobot_non_smote = pd.read_excel("pengujian/weight_non_smote.xlsx")
+    df_bobot_smote = pd.read_excel("pengujian/weight_smote.xlsx")
 
     return df_kfold_non_smote, df_kfold_smote, df_k_non_smote, df_k_smote, df_jarak_non_smote, df_jarak_smote, df_bobot_non_smote, df_bobot_smote
 
@@ -93,11 +93,11 @@ elif menu == "Preprocessing":
     tab1, tab2 = st.tabs(["Sebelum Penanganan Outlier", "Sesudah Penanganan Outlier"])
 
     with tab1:
-        st.image("tampilan/images/Sebelum_Penanganan_Outlier.png", width=630)
+        st.image("images/Sebelum_Penanganan_Outlier.png", width=630)
 
     with tab2:
         st.image(
-            "tampilan/images/Sesudah_Penanganan_Outlier.png", width=630)
+            "images/Sesudah_Penanganan_Outlier.png", width=630)
 
     #Kolom keTiga Transformasi
     col_bawah1, col_bawah2 = st.columns(2)
@@ -135,14 +135,14 @@ elif menu == "EDA":
     with col1:
         st.subheader("Distribusi Kelas Target")
         st.image(
-            "tampilan/images/Distribusi Accident.png",
+            "images/Distribusi Accident.png",
             width="stretch"
         )
 
     with col2:
         st.subheader("Distribusi Keseluruhan")
         st.image(
-            "tampilan/images/Distribusi Keseluruhan.png",
+            "images/Distribusi Keseluruhan.png",
             width="stretch"
         )
 
@@ -152,14 +152,14 @@ elif menu == "EDA":
     with col3:
         st.subheader("Distribusi Korelasi")
         st.image(
-            "tampilan/images/Distribusi Korelasi.png",
+            "images/Distribusi Korelasi.png",
             width="stretch"
         )
 
     with col4:
         st.subheader("Grafik Batang")
         st.image(
-            "tampilan/images/Distribusi_Accident_Bar.png",
+            "images/Distribusi_Accident_Bar.png",
             width="stretch"
         )
 
@@ -248,8 +248,8 @@ elif menu == "Evaluasi Model":
         st.image(img_path_knn_manual_smote, caption="Confusion Matrix KNN Manual (SMOTE)", width="stretch")
 
     with col2:
-        st.image("tampilan/images/Confusion_matrix_grid_non_smote.png", caption="Confusion Matrix Grid Search CV (Non SMOTE)", width="stretch")
-        st.image("tampilan/images/Confusion_matrix_grid_smote.png", caption="Confusion Matrix Grid Search CV (SMOTE)", width="stretch")
+        st.image("images/Confusion_matrix_grid_non_smote.png", caption="Confusion Matrix Grid Search CV (Non SMOTE)", width="stretch")
+        st.image("images/Confusion_matrix_grid_smote.png", caption="Confusion Matrix Grid Search CV (SMOTE)", width="stretch")
 
 
     # CLASSIFICATION REPORT
@@ -368,7 +368,7 @@ elif menu == "Evaluasi Model":
 
     st.subheader("Perbandingan DUMMY, SMOTE, dan Non-SMOTE")
 
-    st.image("tampilan/images/perbandingan_hasil_semua_model.png", width="stretch")
+    st.image("images/perbandingan_hasil_semua_model.png", width="stretch")
 
 # ===============================
 # HALAMAN TENTANG
