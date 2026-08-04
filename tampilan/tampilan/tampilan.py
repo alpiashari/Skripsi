@@ -2,8 +2,9 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 import os
-
-
+from pathlib import Path
+BASE_DIR = Path(__file__).resolve().parent
+DATASET_DIR = BASE_DIR / "dataset"
 # CONFIG
 
 st.set_page_config(
@@ -16,7 +17,7 @@ st.set_page_config(
 
 @st.cache_data
 def load_data():
-    df_asli = pd.read_csv("dataset/RTA Dataset.csv", sep=";")
+    df_asli = pd.read_csv(DATASET_DIR / "RTA Dataset.csv", sep=";")
     df_indonesia = pd.read_csv("dataset/RTA_Dataset_Indonesia.csv", sep=";")
     df_final = pd.read_csv("dataset/Data_final.csv", sep=";")
 
