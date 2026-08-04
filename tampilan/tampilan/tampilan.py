@@ -17,11 +17,11 @@ st.set_page_config(
 
 @st.cache_data
 def load_data():
-    df_asli = pd.read_csv(BASE / "dataset" / "RTA Dataset.csv", sep=";")
-    df_indonesia = pd.read_csv(BASE / "dataset" / "RTA_Dataset_Indonesia.csv", sep=";")
-    df_final = pd.read_csv(BASE / "dataset" / "Data_final.csv", sep=";")
-
+    df_asli = pd.read_csv(DATASET_DIR / "RTA Dataset.csv", sep=";")
+    df_indonesia = pd.read_csv(DATASET_DIR / "RTA_Dataset_Indonesia.csv", sep=";")
+    df_final = pd.read_csv(DATASET_DIR / "Data_final.csv", sep=";")
     return df_asli, df_indonesia, df_final
+
 
 df_asli, df_indonesia, df_final = load_data()
 
